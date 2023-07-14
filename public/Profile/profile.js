@@ -42,8 +42,8 @@ function showEditScreen(e, action) {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('password') === 'true') {
-        showEditScreen(null, 'password');
         localStorage.removeItem('password');
+        showEditScreen(null, 'password');
     }
 });
 
