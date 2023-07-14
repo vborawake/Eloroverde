@@ -441,6 +441,22 @@ input:focus, textarea:focus {
     background: none;
 }
 
+.container .content_wrapper .help_center .input {
+    width: 70%;
+}
+
+.container .content_wrapper .help_center .input:nth-child(1) input {
+    width: 100%;
+}
+
+.container .content_wrapper .help_center .input .country_code {
+    width: 20%;
+}
+
+.container .content_wrapper .help_center .input .number {
+    width: 78%;
+}
+
 .container .content_wrapper .footer {
     margin: 2rem 0 0 0;
 }

@@ -3,6 +3,7 @@ const splashScreen = document.querySelector('.splash_screen.flex_column');
 const introductionScreen = document.querySelector('.introduction_screen.flex_column');
 const termsConditions = document.querySelector('.terms_conditions.flex_column');
 const categoryScreen = document.querySelector('.faq');
+const helpCenter = document.querySelector('.help_center.flex_column');
 
 function showEditScreen(e, which) {
     console.log('Triggered');
@@ -22,6 +23,7 @@ function showEditScreen(e, which) {
             document.querySelector('.content_header.flex_row.space_between.center button').innerHTML = 'Add New Category';
             return;
         }
+        helpCenter.style.display = 'none';
         splashScreen.style.display = 'none';
         introductionScreen.style.display = 'none';
         termsConditions.style.display = 'none';
@@ -63,11 +65,10 @@ function showEditScreen(e, which) {
         document.querySelector('.content_header.flex_row.space_between.center p').innerHTML = 'Back &lt; FAQ &lt; Sign Up & Login';
         document.querySelector('.content_header.flex_row.space_between.center button').style.display = 'block';
         document.querySelector('.content_header.flex_row.space_between.center button').innerHTML = 'Add New Query';
-    } else if (which === 'clinic') {
-        categoryScreen.querySelector('.screen_1.width_full').style.display = 'none';
-        categoryScreen.querySelector('.screen_2.width_full').style.display = 'none';
-        categoryScreen.querySelector('.screen_3.width_full').style.display = 'block';
-        document.querySelector('.header.flex_row.space_between p').innerHTML = 'Back &lt; Edit Category';
+    } else if (which === 'help_center') {
+        defaultSection.style.display = 'none';
+        helpCenter.style.display = 'flex';
+        document.querySelector('.content_header.flex_row.space_between.center p').innerHTML = 'Back &gt; Help Center';
     } else {
         splashScreen.style.display = 'none';
         introductionScreen.style.display = 'flex';
