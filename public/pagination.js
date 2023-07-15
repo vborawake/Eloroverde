@@ -3,6 +3,7 @@ const datePicker = document.querySelectorAll('.date_picker.flex_row.space_betwee
 const eye = document.querySelector('.eye');
 const input = eye ? eye.previousElementSibling : undefined;
 const notifications = document.querySelector('.notifications_wrapper.flex_column');
+const languages = document.querySelector('#language');
 const select = document.querySelectorAll('.select');
 
 function changePage(e) {
@@ -64,6 +65,14 @@ function showNotifications(e) {
     notifications.style.display = 'flex';
     notifications.style.top = `${e.pageY - notifications.getBoundingClientRect().height}px`;
     notifications.style.left = `${ e.pageX }px`;
+}
+
+function showLanguage(e) {
+    e.stopPropagation();
+    languages.style.display = 'flex';
+    languages.style.top = `${e.pageY - (languages.getBoundingClientRect().height + 100)}px`;
+    languages.style.left = `${ e.pageX + 10 }px`;
+    languages.style.transform = `scaleY(1)`;
 }
 
 function showPopup(e) {

@@ -1,3 +1,13 @@
+.loader {
+    min-width: 100vw;
+    min-height: 100vh;
+    background: #CD0508;
+}
+
+.loader img {
+    width: 20%;
+}
+
 .container nav {
     position: fixed;
     top: 0;
@@ -45,6 +55,10 @@
     transform-origin: top;
 }
 
+.container .menu#language {
+    width: 15%;
+}
+
 .container .menu .item {
     padding: 0.5rem 1rem;
     border-radius: 0.6rem;
@@ -53,6 +67,7 @@
 }
 
 .container .menu .item:hover {
+    /* background: #E7B82A; */
     background: #19214F;
     color: #FFF;
 }

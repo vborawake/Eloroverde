@@ -6,8 +6,28 @@ document.addEventListener('click', () => {
     if (notifications) {
         if (notifications.style.display === 'flex') notifications.style.display = 'none';
     }
-    if (document.querySelector('.menu.flex_column').style.transform === 'scaleY(1)') document.querySelector('.menu.flex_column').style.transform = 'scaleY(0)';
+    if (document.querySelector('#menu').style.transform === 'scaleY(1)') document.querySelector('#menu').style.transform = 'scaleY(0)';
+    if (document.querySelector('#language').style.transform === 'scaleY(1)') {
+        document.querySelector('#language').style.transform = 'scaleY(0)';
+        document.querySelector('#language').style.top = '50%';
+    }
 });
+
+function addRow(e) {
+    const html = `
+        <div class="half_input flex_row center space_between">
+            <div class="input flex_row center">
+                <input type="text" placeholder="Name" disabled>
+            </div>
+            <div class="input flex_row center">
+                <input type="text" placeholder="Email" disabled>
+            </div>
+            <button onclick='event.currentTarget.parentElement.remove()'><img src="../images/close_black.png" alt=""></button>
+        </div>
+    `;
+
+    e.currentTarget.parentElement.previousElementSibling.insertAdjacentHTML('afterend', html);
+}
 
 // function showPopup(e) {
 //     e.stopPropagation();

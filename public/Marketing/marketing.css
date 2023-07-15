@@ -215,6 +215,20 @@ input:focus, textarea:focus {
     box-shadow: none;
 }
 
+.container .content_wrapper .popup .form .form_right_section .half_input {
+    position: relative;
+}
+
+.container .content_wrapper .popup .form .form_right_section .half_input button {
+    position: absolute;
+    left: 101%;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    background: none;
+    padding: 0;
+}
+
 .container .content_wrapper .order_details {
     width: 100%;
 }

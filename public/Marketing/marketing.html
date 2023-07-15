@@ -64,6 +64,16 @@
                     </div>
                 </div>
             </div>
+            <div class="menu flex_column" id="language">
+                <div class="item flex_row center" onclick="window.location.href = '../Profile/profile.html'">
+                    <img src="../images/great_britain.png" alt="">
+                    <p>English</p>
+                </div>
+                <div class="item flex_row center" onclick="window.location.href = '../Profile/profile.html'; localStorage.setItem('password', 'true')">
+                    <img src="../images/spain.png" alt="">
+                    <p>Spanish</p>
+                </div>
+            </div>
             <div class="sidebar flex_column">
                 <img src="../images/logo.png">
                 <ul>
@@ -136,7 +146,7 @@
                     <div class="image">
                         <img src="../images/terms_conditions.png" alt="">
                     </div>
-                    <div class="image">
+                    <div class="image" onclick="showLanguage(event)">
                         <img src="../images/globe.png" alt="">
                     </div>
                     <div class="image" onclick="window.location.href = '../Login/loginAdmin.html'">
@@ -199,7 +209,7 @@
                         </div>
                         <p id="username">John</p>
                     </div>
-                    <div class="menu flex_column">
+                    <div class="menu flex_column" id="menu">
                         <div class="item flex_row center" onclick="window.location.href = '../Profile/profile.html'">
                             <img src="../images/account_circle_green.png" alt="">
                             <p>Profile</p>
@@ -242,7 +252,7 @@
                                 </div>
                             </div>
                             <div class="buttons flex_row space_between center">
-                                <button>Add Customer</button>
+                                <button onclick="addRow(event)">Add Customer</button>
                                 <button>Send Invitation</button>
                             </div>
                         </div>

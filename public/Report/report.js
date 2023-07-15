@@ -7,7 +7,7 @@ const lineCtx = line ? line.getContext('2d') : null;
 const bar = document.getElementById('bar');
 const barCtx = bar ? bar.getContext('2d') : null;
 const summary = document.getElementById('summary');
-const popup = document.querySelector('.popup.flex_column');
+const popup = document.querySelector('.menu.flex_column');
 
 function showDetails(e) {
     popup.style.display = 'flex';
@@ -182,5 +182,9 @@ document.addEventListener('click', () => {
     if (notifications) {
         if (notifications.style.display === 'flex') notifications.style.display = 'none';
     }
-    if (document.querySelector('.menu.flex_column').style.transform === 'scaleY(1)') document.querySelector('.menu.flex_column').style.transform = 'scaleY(0)';
+    if (document.querySelector('#menu').style.transform === 'scaleY(1)') document.querySelector('#menu').style.transform = 'scaleY(0)';
+    if (document.querySelector('#language').style.transform === 'scaleY(1)') {
+        document.querySelector('#language').style.transform = 'scaleY(0)';
+        document.querySelector('#language').style.top = '50%';
+    }
 });
