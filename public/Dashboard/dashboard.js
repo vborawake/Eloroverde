@@ -9,16 +9,6 @@ const barCtx = bar ? bar.getContext('2d') : null;
 const summary = document.getElementById('summary');
 const popup = document.querySelector('.popup.flex_column');
 
-window.addEventListener('load', () => {
-    document.querySelector('.container.flex_column').style.display = 'none';
-    document.querySelector('.loader.flex_row.justify_center.center').style.display = 'flex';
-    
-    setTimeout(() => {
-        document.querySelector('.container.flex_column').style.display = 'flex';
-        document.querySelector('.loader.flex_row.justify_center.center').style.display = 'none';
-    }, 1000);
-});
-
 function showDetails(e) {
     popup.style.display = 'flex';
     popup.style.top = `${ window.scrollY }px`;
@@ -67,11 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 ]
             },
             options: {
-                scales: {
-                    y: {
-                        suggestedMax: 100
-                    }
-                },
                 plugins: {
                     legend: {
                         labels: {

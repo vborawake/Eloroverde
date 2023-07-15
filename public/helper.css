@@ -2,6 +2,7 @@
     min-width: 100vw;
     min-height: 100vh;
     background: #CD0508;
+    z-index: 100;
 }
 
 .loader img {
