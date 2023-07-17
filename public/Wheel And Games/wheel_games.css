@@ -343,6 +343,10 @@ input, textarea {
     margin: 2rem 0 0 0;
 }
 
+.container .right_section .screen_2 .wheel img {
+    margin: 0 4rem 0 0;
+}
+
 .container .right_section .screen_2 .wheel h1 {
     font-family: 'Jeju Hallasan', 'cursive';
     font-weight: 500;

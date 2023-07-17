@@ -453,6 +453,7 @@
     border-radius: 1.5rem;
     border: 2px solid #D9D9D9;
     height: 3rem;
+    padding-left: 1rem;
 }
 
 .container .content_wrapper .header_right_section .search img {

@@ -36,6 +36,7 @@ function showDetails(e, element) {
         right_section.children[1].style.display = 'flex';
         right_section.children[2].style.display = 'flex';
         right_section.children[3].style.display = 'none';
+        right_section.children[5].style.display = 'none';
     } else if (element === 'product_details') {
         right_section.children[0].style.display = 'none';
         right_section.children[1].style.display = 'flex';
