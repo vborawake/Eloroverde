@@ -106,7 +106,7 @@ function showPage(event, selector) {
     }
     
     Array.from(container.children).forEach(value => {
-        if (value.tagName !== 'H1' && !value.classList.contains('header') && !value.classList.contains('pagination')) value.style.display = 'none';
+        if (value.tagName !== 'H1' && !value.classList.contains('appointments_header') && !value.classList.contains('header') && !value.classList.contains('pagination')) value.style.display = 'none';
     });
     
     if (page) {
