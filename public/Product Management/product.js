@@ -29,6 +29,12 @@ function showDetails(e, element) {
         const productDetails = document.querySelector('#products');
         productDetails.previousElementSibling.style.display = 'none';
         productDetails.style.display = 'flex';
+        gsap.from('#product_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     } else if (element === 'back') {
         // If user clicks on back
         // Hide table and pagination
@@ -46,6 +52,12 @@ function showDetails(e, element) {
             right_section.children[2].style.display = 'flex';
             right_section.children[3].style.display = 'flex';
             right_section.children[6].style.display = 'flex';
+            gsap.from('#table_stagger', {
+                y: '-2rem',
+                opacity: 0,
+                delay: 0.5,
+                stagger: 0.3
+            });
         }
     } else if (element === 'product_details') {
         Array.from(right_section.children).forEach(child => { child.style.display = 'none' });
@@ -60,6 +72,12 @@ function showDetails(e, element) {
         e.currentTarget.previousElementSibling.classList.remove('active');
         document.querySelector('#brands').style.display = 'block';
         document.querySelector('#category').style.display = 'none';
+        gsap.from('#brand_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     } else if (element === 'products') {
         document.querySelector('.products.width_full').style.display = 'block';
         document.querySelector('.brands.width_full').style.display = 'none';
@@ -67,13 +85,19 @@ function showDetails(e, element) {
         e.currentTarget.nextElementSibling.classList.remove('active');
         document.querySelector('#brands').style.display = 'none';
         document.querySelector('#category').style.display = 'block';
+        gsap.from('#table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     } else if (element === 'add_brand') {
         const element = document.querySelector('.edit_category.edit_brand.flex_column');
         element.style.display = 'flex';
         setTimeout(() => { element.style.transform = 'scale(1)'; });
         element.querySelector('h1').innerHTML = 'Add Brand';
         document.querySelector('#image_input').style.display = 'none';
-        if (e.currentTarget.tagName === 'BUTTON') {
+        if (e.currentTarget.parentElement.classList.contains('action')) {
             element.querySelector('h1').innerHTML = 'Edit Brand';
             document.querySelector('#image_input').style.display = 'flex';
         }
@@ -105,11 +129,40 @@ function closeDetails(e, element) {
     }
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     setTimeout(() => {
-//         details.style.transform = 'scale(1)';
-//     });
-//     right_section.children[4].style.display = 'flex';
-//     // requestAnimationFrame(() => {
-//     // });
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    addAnimations();
+});
+
+function addAnimations() {
+    gsap.from('.sidebar', {
+        x: '-4rem',
+        opacity: 0,
+        duration: 0.5
+    });
+
+    gsap.from('#stagger', {
+        y: '-2rem',
+        opacity: 0,
+        stagger: 0.3
+    });
+
+    gsap.from('#table_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.3
+    });
+
+    // gsap.from('#chart_stagger', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     delay: 1,
+    //     stagger: 0.3
+    // });
+
+    // gsap.from('.order_details', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     duration: 0.5
+    // });
+}

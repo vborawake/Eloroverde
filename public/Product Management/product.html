@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="product.css">
     <link rel="stylesheet" href="../helper.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="../pagination.js"></script>
     <script defer src="product.js"></script>
     <title>Product Management</title>
@@ -192,7 +193,7 @@
                     </div>
                     <div class="buttons flex_row center">
                         <button>Submit</button>
-                        <button onclick="event.currentTarget.parentElement.parentElement.style.display = 'none'">Reset</button>
+                        <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
                     </div>
                 </div>
                 <div class="edit_category edit_brand flex_column" style="display: none;">
@@ -238,10 +239,10 @@
                     </div>
                     <div class="buttons flex_row center">
                         <button>Submit</button>
-                        <button onclick="event.currentTarget.parentElement.parentElement.style.display = 'none'">Reset</button>
+                        <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
                     </div>
                 </div>
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Product Management</h1>
                     </div>
@@ -274,8 +275,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box">
-                    <div class="appointments_header flex_row center space_between">
+                <div class="appointments flex_column box" id="stagger">
+                    <div class="appointments_header flex_row center space_between" id="table_stagger">
                         <div class="appointments_header_left flex_row center">
                             <h1 onclick="showDetails(event, 'products')" class="active">Product Category</h1>
                             <h1 onclick="showDetails(event, 'brands')">Brands</h1>
@@ -286,7 +287,7 @@
                         </div>
                     </div>
                     <div class="products width_full">
-                        <div class="header flex_row space_between center">
+                        <div class="header flex_row space_between center" id="table_stagger">
                             <p>Image</p>
                             <div class="flex_row center justify_center">
                                 <p>Category</p>
@@ -296,7 +297,7 @@
                             <p>SKU</p>
                             <p>Action</p>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -308,7 +309,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -320,7 +321,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -332,7 +333,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -344,7 +345,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -356,7 +357,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="table_stagger">
                             <div class="image flex_row center">
                                 <span></span>
                             </div>
@@ -370,7 +371,7 @@
                         </div>
                     </div>
                     <div class="brands flex_column width_full" style="display: none;">
-                        <div class="header flex_row space_between center">
+                        <div class="header flex_row space_between center" id="brand_table_stagger">
                             <p>Image</p>
                             <div class="flex_row center justify_center">
                                 <p>Brand Name</p>
@@ -380,7 +381,7 @@
                             <p>Position</p>
                             <p>Action</p>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/CBD.png" alt="">
                             </div>
@@ -388,11 +389,11 @@
                             <p id="success">In Stock</p>
                             <p>1</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/Acti Tube.png" alt="">
                             </div>
@@ -400,11 +401,11 @@
                             <p id="success">In Stock</p>
                             <p>2</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/OO Seeds.png" alt="">
                             </div>
@@ -412,11 +413,11 @@
                             <p id="success">In Stock</p>
                             <p>3</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/Aero Spaced.png" alt="">
                             </div>
@@ -424,11 +425,11 @@
                             <p id="success">In Stock</p>
                             <p>4</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/Aleda.png" alt="">
                             </div>
@@ -436,11 +437,11 @@
                             <p id="success">In Stock</p>
                             <p>5</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="brand_table_stagger">
                             <div class="image flex_row center">
                                 <img src="../images/Backwoods.png" alt="">
                             </div>
@@ -448,7 +449,7 @@
                             <p id="success">In Stock</p>
                             <p>6</p>
                             <div class="action flex_row space_between center">
-                                <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
@@ -459,7 +460,7 @@
                         <h1 onclick="showDetails(event, 'back')">Back &lt; List Of All Products Available</h1>
                         <button onclick="showDetails(event, 'product_details')">Add New Product</button>
                     </div>
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>Image</p>
                         <p>Product Name</p>
                         <p>Detail</p>
@@ -468,7 +469,7 @@
                         <p>SKU</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -484,7 +485,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -500,7 +501,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -516,7 +517,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -532,7 +533,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -548,7 +549,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -564,7 +565,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="product_table_stagger">
                         <div class="image flex_row center">
                             <span></span>
                         </div>
@@ -591,7 +592,7 @@
                             <button onclick="showDetails(event, 'add_brand')" id="brands" style="display: none;">Add New Brands</button>
                         </div>
                     </div>
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>Image</p>
                         <div class="flex_row center justify_center">
                             <p>Brand Name</p>
@@ -601,7 +602,7 @@
                         <p>Position</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="image flex_row center">
                             <img src="../images/CBD.png" alt="">
                         </div>
@@ -614,7 +615,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer flex_row space_between center">
+                <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
                         <button id="prev">Prev</button>

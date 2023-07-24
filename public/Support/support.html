@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js" integrity="sha512-CMF3tQtjOoOJoOKlsS7/2loJlkyctwzSoDK/S40iAB+MqWSaf50uObGQSk5Ny/gfRhRCjNLvoxuCvdnERU4WGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="support.js"></script>
     <script defer src="../pagination.js"></script>
     <link rel="stylesheet" href="../helper.css">
@@ -226,7 +227,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Support Management</h1>
                     </div>
@@ -259,11 +260,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box">
+                <div class="appointments flex_column box" id="stagger">
                     <!-- <div class="appointments_header flex_row center space_between">
                         <h1>List Of All Transactions</h1>
                     </div> -->
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>#</p>
                         <p>Name</p>
                         <p>Request ID</p>
@@ -272,7 +273,7 @@
                         <p>Date</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>1</p>
                         <p>Alex</p>
                         <p>12545</p>
@@ -284,7 +285,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>2</p>
                         <p>Alex</p>
                         <p>12545</p>
@@ -296,7 +297,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>3</p>
                         <p>Alex</p>
                         <p>12545</p>
@@ -308,7 +309,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>4</p>
                         <p>Alex</p>
                         <p>12545</p>
@@ -320,7 +321,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>5</p>
                         <p>Alex</p>
                         <p>12545</p>
@@ -333,7 +334,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer flex_row space_between center">
+                <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
                         <button id="prev">Prev</button>

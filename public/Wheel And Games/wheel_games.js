@@ -43,10 +43,22 @@ function showScreen(e, screen) {
         right_section.children[2].style.display = 'none';
         right_section.children[3].style.display = 'none';
         right_section.children[4].style.display = 'flex';
+        gsap.from('#details_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     } else {
         right_section.children[2].style.display = 'flex';
         right_section.children[3].style.display = 'flex';
         right_section.children[4].style.display = 'none';
+        gsap.from('#table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     }
 }
 
@@ -65,11 +77,40 @@ function closeDetails(e, element) {
     }
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     setTimeout(() => {
-//         details.style.transform = 'scale(1)';
-//     });
-//     right_section.children[4].style.display = 'flex';
-//     // requestAnimationFrame(() => {
-//     // });
-// });
+document.addEventListener('DOMContentLoaded', () => {
+    addAnimations();
+});
+
+function addAnimations() {
+    gsap.from('.sidebar', {
+        x: '-4rem',
+        opacity: 0,
+        duration: 0.5
+    });
+
+    gsap.from('#stagger', {
+        y: '-2rem',
+        opacity: 0,
+        stagger: 0.3
+    });
+
+    gsap.from('#table_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.3
+    });
+
+    // gsap.from('#chart_stagger', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     delay: 1,
+    //     stagger: 0.3
+    // });
+
+    // gsap.from('.order_details', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     duration: 0.5
+    // });
+}

@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../helper.css">
     <script defer src="../pagination.js"></script>
     <script defer src="wheel_games.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Raffle wheel and Games</title>
 </head>
 <body>
@@ -239,7 +240,7 @@
                         <button onclick="event.currentTarget.parentElement.parentElement.style.display = 'none'">Reset</button>
                     </div>
                 </div>
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Raffle wheel and Games</h1>
                     </div>
@@ -272,12 +273,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box">
-                    <div class="appointments_header flex_row center space_between">
+                <div class="appointments flex_column box" id="stagger">
+                    <div class="appointments_header flex_row center space_between" id='table_stagger'>
                         <h1>List of Raffle wheel winners</h1>
                         <button onclick="showScreen(event, 'screen_2')">Add Raffle Wheel Prizes</button>
                     </div>
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id='table_stagger'>
                         <p>#</p>
                         <p>Name</p>
                         <p>Email</p>
@@ -287,7 +288,7 @@
                         <p>Status</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>1</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -300,7 +301,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>2</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -313,7 +314,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>3</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -326,7 +327,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>4</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -339,7 +340,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>5</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -352,7 +353,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>6</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -365,7 +366,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id='table_stagger'>
                         <p>7</p>
                         <p>Alex</p>
                         <p>alex@gmail.com</p>
@@ -379,7 +380,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer flex_row space_between center">
+                <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
                         <button id="prev">Prev</button>
@@ -394,7 +395,7 @@
                             <h1 style="cursor: pointer;">Back &gt; Add Raffle Wheel Prizes</h1>
                         </div>
                     </div>
-                    <div class="wheel flex_row center">
+                    <div class="wheel flex_row center" id="details_table_stagger">
                         <img src="../images/spin wheel.png" alt="">
                         <h1>ADD NEW OFFERS FOR CUSTOMER SPIN WHEEL GAME</h1>
                     </div>
@@ -402,12 +403,12 @@
                         <div class="appointments_header flex_row center justify_flex_end">
                             <button onclick="showEditAddPrize(event, 'add_category')">Add New Prizes</button>
                         </div>
-                        <div class="header flex_row space_between center">
+                        <div class="header flex_row space_between center" id="details_table_stagger">
                             <p>#</p>
                             <p>Prize Details</p>
                             <p>Action</p>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="details_table_stagger">
                             <p>1</p>
                             <p>10 % off on Rolling Tray</p>
                             <div class="action flex_row space_between center">
@@ -415,7 +416,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="details_table_stagger">
                             <p>2</p>
                             <p>10 % off on Rolling Tray</p>
                             <div class="action flex_row space_between center">
@@ -423,7 +424,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="details_table_stagger">
                             <p>3</p>
                             <p>10 % off on Rolling Tray</p>
                             <div class="action flex_row space_between center">
@@ -431,7 +432,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="details_table_stagger">
                             <p>4</p>
                             <p>10 % off on Rolling Tray</p>
                             <div class="action flex_row space_between center">
@@ -439,7 +440,7 @@
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>
-                        <div class="values flex_row space_between center">
+                        <div class="values flex_row space_between center" id="details_table_stagger">
                             <p>5</p>
                             <p>10 % off on Rolling Tray</p>
                             <div class="action flex_row space_between center">

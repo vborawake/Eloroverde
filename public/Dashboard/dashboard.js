@@ -168,7 +168,42 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    addAnimations();
 });
+
+function addAnimations() {
+    gsap.from('.sidebar', {
+        x: '-4rem',
+        opacity: 0,
+        duration: 0.5
+    });
+
+    gsap.from('#stagger', {
+        y: '-2rem',
+        opacity: 0,
+        stagger: 0.3
+    });
+
+    gsap.from('#stat_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.3
+    });
+
+    gsap.from('#chart_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 1,
+        stagger: 0.3
+    });
+
+    gsap.from('.order_details', {
+        y: '-2rem',
+        opacity: 0,
+        duration: 0.5
+    });
+}
 
 // function setSummary() {
 //     summary.style.top = `${ doughnut.getBoundingClientRect().height / 2 + 10 }px`;

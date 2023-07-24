@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="orders.css">
     <link rel="stylesheet" href="../helper.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js" integrity="sha512-CMF3tQtjOoOJoOKlsS7/2loJlkyctwzSoDK/S40iAB+MqWSaf50uObGQSk5Ny/gfRhRCjNLvoxuCvdnERU4WGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="../pagination.js"></script>
     <script defer src="orders.js"></script>
     <title>Orders</title>
@@ -234,7 +235,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Orders</h1>
                     </div>
@@ -267,11 +268,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box">
+                <div class="appointments flex_column box" id="stagger">
                     <div class="appointments_header flex_row center space_between">
                         <h1>List Of All Orders Received</h1>
                     </div>
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>Customer Name</p>
                         <p>Order ID</p>
                         <p>Product Name</p>
@@ -281,7 +282,7 @@
                         <p>Status</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -296,7 +297,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -311,7 +312,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -326,7 +327,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -341,7 +342,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -356,7 +357,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -371,7 +372,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <p>Alex</p>
                         <p>12546</p>
                         <p>Rolling Tray</p>
@@ -387,7 +388,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer flex_row space_between center">
+                <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
                         <button id="prev">Prev</button>

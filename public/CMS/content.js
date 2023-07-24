@@ -31,6 +31,7 @@ function showEditScreen(e, which) {
         categoryScreen.style.display = 'none';
         e.currentTarget.querySelector('p').innerHTML = 'Content Management System';
         e.currentTarget.querySelector('button').style.display = 'none';
+        addAnimations();
     } else if (which === 'splash') {
         splashScreen.style.display = 'flex';
         introductionScreen.style.display = 'none';
@@ -40,6 +41,11 @@ function showEditScreen(e, which) {
         // Change the heading value
         e.currentTarget.parentElement.parentElement.parentElement.previousElementSibling.querySelector('p').innerHTML = 'Back &lt; Edit Splash Screen';
         e.currentTarget.parentElement.parentElement.parentElement.previousElementSibling.querySelector('button').style.display = 'none';
+        gsap.from('#screen', {
+            y: '-2rem',
+            opacity: 0,
+            duration: 0.5
+        });
     } else if (which === 'terms') {
         splashScreen.style.display = 'none';
         introductionScreen.style.display = 'none';
@@ -49,6 +55,11 @@ function showEditScreen(e, which) {
         // Change the heading value
         e.currentTarget.parentElement.parentElement.parentElement.previousElementSibling.querySelector('p').innerHTML = 'Back &lt; Edit Terms & Conditions';
         e.currentTarget.parentElement.parentElement.parentElement.previousElementSibling.querySelector('button').style.display = 'none';
+        gsap.from('#screen', {
+            y: '-2rem',
+            opacity: 0,
+            duration: 0.5
+        });
     } else if (which === 'faq') {
         categoryScreen.style.display = 'block';
         splashScreen.style.display = 'none';
@@ -59,16 +70,31 @@ function showEditScreen(e, which) {
         categoryScreen.querySelector('.screen_2.width_full').style.display = 'none';
         document.querySelector('.content_header.flex_row.space_between.center p').innerHTML = 'Back &lt; FAQ';
         document.querySelector('.content_header.flex_row.space_between.center button').style.display = 'block';
+        gsap.from('#screen', {
+            y: '-2rem',
+            opacity: 0,
+            duration: 0.5
+        });
     } else if (which === 'signup') {
         categoryScreen.querySelector('.screen_1.width_full').style.display = 'none';
         categoryScreen.querySelector('.screen_2.width_full').style.display = 'block';
         document.querySelector('.content_header.flex_row.space_between.center p').innerHTML = 'Back &lt; FAQ &lt; Sign Up & Login';
         document.querySelector('.content_header.flex_row.space_between.center button').style.display = 'block';
         document.querySelector('.content_header.flex_row.space_between.center button').innerHTML = 'Add New Query';
+        gsap.from('#screen', {
+            y: '-2rem',
+            opacity: 0,
+            duration: 0.5
+        });
     } else if (which === 'help_center') {
         defaultSection.style.display = 'none';
         helpCenter.style.display = 'flex';
         document.querySelector('.content_header.flex_row.space_between.center p').innerHTML = 'Back &gt; Help Center';
+        gsap.from('#screen', {
+            y: '-2rem',
+            opacity: 0,
+            duration: 0.5
+        });
     } else {
         splashScreen.style.display = 'none';
         introductionScreen.style.display = 'flex';
@@ -101,4 +127,35 @@ function showPopup2 (e) {
         document.querySelector('.edit_query.flex_column').style.display = 'flex';
         document.querySelector('.edit_query.flex_column h1').innerHTML = 'Add Query';
     }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    addAnimations();
+});
+
+function addAnimations() {
+    gsap.from('.sidebar', {
+        x: '-4rem',
+        opacity: 0,
+        duration: 0.5
+    });
+
+    gsap.from('#stagger', {
+        y: '-2rem',
+        opacity: 0,
+        stagger: 0.3
+    });
+
+    gsap.from('#table_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.3
+    });
+
+    // gsap.from('.order_details', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     duration: 0.5
+    // });
 }

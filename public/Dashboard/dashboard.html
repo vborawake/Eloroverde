@@ -6,6 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js" integrity="sha512-CMF3tQtjOoOJoOKlsS7/2loJlkyctwzSoDK/S40iAB+MqWSaf50uObGQSk5Ny/gfRhRCjNLvoxuCvdnERU4WGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="dashboard.js"></script>
     <script defer src="../pagination.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="../helper.css">
     <title>Dashboard</title>
@@ -156,7 +157,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Welcome Back, <span id="username">John</span></h1>
                         <p>Here is what happening with your store today !</p>
@@ -190,8 +191,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="stats flex_row space_between">
-                    <div class="stat flex_column space_evenly">
+                <div class="stats flex_row space_between" id="stagger">
+                    <div class="stat flex_column space_evenly" id="stat_stagger">
                         <div class="top_row flex_row center">
                             <img src="../images/sales.png" alt="sales">
                             <p>Total Sales</p>
@@ -201,7 +202,7 @@
                             <img src="../images/sales_icon.png" alt="">
                         </div>
                     </div>
-                    <div class="stat flex_column space_evenly">
+                    <div class="stat flex_column space_evenly" id="stat_stagger">
                         <div class="top_row flex_row center">
                             <img src="../images/unique_visitor.png" alt="sales">
                             <p>Visitors</p>
@@ -211,7 +212,7 @@
                             <img src="../images/sales_icon.png" alt="">
                         </div>
                     </div>
-                    <div class="stat flex_column space_evenly">
+                    <div class="stat flex_column space_evenly" id="stat_stagger">
                         <div class="top_row flex_row center">
                             <img src="../images/box.png" alt="sales">
                             <p>Orders</p>
@@ -221,7 +222,7 @@
                             <img src="../images/sales_icon.png" alt="">
                         </div>
                     </div>
-                    <div class="stat flex_column space_evenly">
+                    <div class="stat flex_column space_evenly" id="stat_stagger">
                         <div class="top_row flex_row center">
                             <img src="../images/unit.png" alt="sales">
                             <p>Units Sold</p>
@@ -232,8 +233,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="chart_section flex_row space_between">
-                    <div class="area_chart box flex_column align_flex_start">
+                <div class="chart_section flex_row space_between" id="stagger">
+                    <div class="area_chart box flex_column align_flex_start" id="chart_stagger">
                         <div class="header flex_row space_between center width_full">
                             <h1>Revenue Vs Order</h1>
                             <div class="date_picker flex_row space_between center">
@@ -246,7 +247,7 @@
                         </div>
                         <canvas id="line"></canvas>
                     </div>
-                    <div class="doughnut_chart box flex_column align_flex_start">
+                    <div class="doughnut_chart box flex_column align_flex_start" id="chart_stagger">
                         <div class="header flex_row space_between center width_full">
                             <h1>Sale By Category</h1>
                         </div>
@@ -254,8 +255,8 @@
                         <!-- <p id="summary">Total 212</p> -->
                     </div>
                 </div>
-                <div class="bar_area flex_row space_between">
-                    <div class="bar flex_column box">
+                <div class="bar_area flex_row space_between" id="stagger">
+                    <div class="bar flex_column box" id="chart_stagger">
                         <div class="header flex_row space_between center width_full">
                             <h1>Conversions (Cart -to-Buy)</h1>
                             <div class="date_picker flex_row space_between center">
@@ -268,7 +269,7 @@
                         </div>
                         <canvas id="bar"></canvas>
                     </div>
-                    <div class="table_wrapper flex_column box">
+                    <div class="table_wrapper flex_column box" id="chart_stagger">
                         <div class="table_header flex_row center space_between">
                             <h1>Raffel Winners</h1>
                             <a href="#">
@@ -353,7 +354,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="order_details flex_column">
+                <div class="order_details flex_column" id="stagger">
                     <div class="order_details_header flex_row center space_between">
                         <p>Recent Orders</p>
                         <p style="cursor: pointer;" onclick="window.location.href = '../Orders/orders.html'">See All</p>

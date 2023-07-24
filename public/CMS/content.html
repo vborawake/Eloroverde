@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="content.js"></script>
     <script defer src="../pagination.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="../helper.css">
     <link rel="stylesheet" href="content.css">
     <title>Training</title>
@@ -155,7 +156,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>CMS</h1>
                     </div>
@@ -188,60 +189,60 @@
                         </div>
                     </div>
                 </div>
-                <div class="content_header flex_row space_between center" onclick="showEditScreen(event, 'header')">
+                <div class="content_header flex_row space_between center" onclick="showEditScreen(event, 'header')" id="stagger">
                     <p>Content Management System (CMS)</p>
                     <button onclick="showPopup2(event)">Add New Category</button>
                 </div>
-                <div class="content flex_column">
-                    <div class="header flex_row space_between center">
+                <div class="content flex_column" id="stagger">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>#</p>
                         <p>Page List</p>
                         <p>Action</p>
                     </div>
                     <div class="values flex_column">
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>1</p>
                             <p>Splash Screen</p>
                             <button onclick="showEditScreen(event, 'splash')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>2</p>
                             <p>Introduction Screen 1</p>
                             <button onclick="showEditScreen(event, 'intro1')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>3</p>
                             <p>Introduction Screen 2</p>
                             <button onclick="showEditScreen(event, 'intro2')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>4</p>
                             <p>Introduction Screen 3</p>
                             <button onclick="showEditScreen(event, 'intro3')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>5</p>
                             <p>About Us</p>
                             <button onclick="showEditScreen(event, 'terms')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>6</p>
                             <p>FAQ</p>
                             <button onclick="showEditScreen(event, 'faq')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>7</p>
                             <p>Help Center</p>
                             <button onclick="showEditScreen(event, 'help_center')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
-                        <div class="value flex_row center space_between">
+                        <div class="value flex_row center space_between" id="table_stagger">
                             <p>8</p>
                             <p>Terms & Conditions</p>
                             <button onclick="showEditScreen(event, 'terms')"><img src="../images/edit_yellow.png" alt=""></button>
                         </div>
                     </div>
                 </div>
-                <div class="splash_screen flex_column" style="display: none;">
+                <div class="splash_screen flex_column" style="display: none;" id="screen">
                     <div class="input flex_row align_flex_start">
                         <p>Logo</p>
                         <div class="image flex_row justify_center center">
@@ -261,7 +262,7 @@
                     </div>
                     <button>Save</button>
                 </div>
-                <div class="introduction_screen flex_column" style="display: none;">
+                <div class="introduction_screen flex_column" style="display: none;" id="screen">
                     <div class="input flex_row align_flex_start">
                         <p>Logo</p>
                         <div class="image flex_row justify_center center">
@@ -294,7 +295,7 @@
                     </div>
                     <button>Save</button>
                 </div>
-                <div class="terms_conditions flex_column" style="display: none;">
+                <div class="terms_conditions flex_column" style="display: none;" id="screen">
                     <div class="input flex_row align_flex_start">
                         <p>Title</p>
                         <input type="text" placeholder="Lorem Ipsum">
@@ -305,7 +306,7 @@
                     </div>
                     <button>Save</button>
                 </div>
-                <div class="faq" style="display: none;">
+                <div class="faq" style="display: none;" id="screen">
                     <div class="edit_category flex_column" style="display: none;">
                         <h1>Edit Category</h1>
                         <div class="input flex_column">
@@ -458,7 +459,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="terms_conditions help_center flex_column" style="display: none;">
+                <div class="terms_conditions help_center flex_column" style="display: none;" id="screen">
                     <div class="input flex_row align_flex_start">
                         <p>Email</p>
                         <input type="text" placeholder="Lorem Ipsum">

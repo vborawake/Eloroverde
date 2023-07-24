@@ -511,12 +511,14 @@ input, textarea {
 
 .container .content_wrapper .right_section .edit_brand .image {
     position: relative;
+    width: 14rem;
+    height: 6rem;
 }
 
 .container .content_wrapper .right_section .edit_brand .image img:nth-child(2) {
     position: absolute;
     top: 0.5rem;
-    left: 12.5rem;
+    right: 0;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 1400px) {

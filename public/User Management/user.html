@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="user.css">
     <link rel="stylesheet" href="../helper.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js" integrity="sha512-CMF3tQtjOoOJoOKlsS7/2loJlkyctwzSoDK/S40iAB+MqWSaf50uObGQSk5Ny/gfRhRCjNLvoxuCvdnERU4WGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script defer src="../pagination.js"></script>
     <script defer src="user.js"></script>
     <title>User Management</title>
@@ -234,7 +235,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
-                <div class="header flex_row center space_between">
+                <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>User Management</h1>
                     </div>
@@ -267,11 +268,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box">
-                    <div class="appointments_header flex_row center space_between">
+                <div class="appointments flex_column box" id="stagger">
+                    <div class="appointments_header flex_row center space_between" id="table_stagger">
                         <h1>List Of All Logged Users</h1>
                     </div>
-                    <div class="header flex_row space_between center">
+                    <div class="header flex_row space_between center" id="table_stagger">
                         <p>Name</p>
                         <p>Location</p>
                         <p>Email</p>
@@ -279,7 +280,7 @@
                         <p>Status</p>
                         <p>Action</p>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="user flex_row center">
                             <span></span>
                             <p>Alex</p>
@@ -293,7 +294,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="user flex_row center">
                             <span></span>
                             <p>Alex</p>
@@ -307,7 +308,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="user flex_row center">
                             <span></span>
                             <p>Alex</p>
@@ -321,7 +322,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="user flex_row center">
                             <span></span>
                             <p>Alex</p>
@@ -335,7 +336,7 @@
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
-                    <div class="values flex_row space_between center">
+                    <div class="values flex_row space_between center" id="table_stagger">
                         <div class="user flex_row center">
                             <span></span>
                             <p>Alex</p>
@@ -344,13 +345,13 @@
                         <p>alex@gmail.com</p>
                         <p>20/07/2023 02:23 AM</p>
                         <p>Active</p>
-                        <div class="action flex_row space_between center">
+                        <div class="action flex_row space_between center" id="table_stagger">
                             <button onclick="showDetails(event)"><img src="../images/eye.png" alt=""></button>
                             <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                         </div>
                     </div>
                 </div>
-                <div class="footer flex_row space_between center">
+                <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
                         <button id="prev">Prev</button>
@@ -467,6 +468,5 @@
             </div>
         </div>
     </div>
-    <script>window.addEventListener('resize', () => { console.log(window.innerWidth); })</script>
 </body>
 </html>

@@ -27,6 +27,7 @@ function showDetails(e) {
         requestAnimationFrame(() => {
             details.style.transform = 'scale(0)';
         });
+        addAnimations();
     } else {
         // If user clicks on eye
         // Hide table and pagination
@@ -49,4 +50,42 @@ function closeDetails(e) {
     setTimeout(() => {
         popup.style.display = 'none';
     }, 500);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    addAnimations();
+});
+
+function addAnimations() {
+    gsap.from('.sidebar', {
+        x: '-4rem',
+        opacity: 0,
+        duration: 0.5
+    });
+
+    gsap.from('#stagger', {
+        y: '-2rem',
+        opacity: 0,
+        stagger: 0.3
+    });
+
+    gsap.from('#table_stagger', {
+        y: '-2rem',
+        opacity: 0,
+        delay: 0.5,
+        stagger: 0.3
+    });
+
+    // gsap.from('#chart_stagger', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     delay: 1,
+    //     stagger: 0.3
+    // });
+
+    // gsap.from('.order_details', {
+    //     y: '-2rem',
+    //     opacity: 0,
+    //     duration: 0.5
+    // });
 }
