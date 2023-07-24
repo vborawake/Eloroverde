@@ -79,8 +79,8 @@ function showPopup(e) {
     e.stopPropagation();
     console.log('Clicked');
     if (e.target.classList.contains('profile_img') || e.target.id === 'username' || e.target.tagName === 'IMG') {
-        if (e.currentTarget.nextElementSibling.style.transform === 'scaleY(0)' || e.currentTarget.nextElementSibling.style.transform === '') e.currentTarget.nextElementSibling.style.transform = 'scaleY(1)';
-        else e.currentTarget.nextElementSibling.style.transform = 'scaleY(0)';
+        if (document.getElementById('menu').style.transform === 'scaleY(0)' || document.getElementById('menu').style.transform === '') document.getElementById('menu').style.transform = 'scaleY(1)';
+        else document.getElementById('menu').style.transform = 'scaleY(0)';
     }
 }
 

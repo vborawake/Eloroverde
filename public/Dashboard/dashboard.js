@@ -225,7 +225,13 @@ document.addEventListener('click', () => {
 function showPopup(e) {
     e.stopPropagation();
     if (e.target.classList.contains('profile_img') || e.target.classList.contains('username')) {
-        if (e.currentTarget.nextElementSibling.style.transform === 'scaleY(0)' || e.currentTarget.nextElementSibling.style.transform === '') e.currentTarget.nextElementSibling.style.transform = 'scaleY(1)';
+        gsap.to(e.currentTarget.nextElementSibling, {
+            display: 'flex',
+            transform: 'scaleY(1)'
+        });
+        if (e.currentTarget.nextElementSibling.style.transform === 'scaleY(0)' || e.currentTarget.nextElementSibling.style.transform === '') {
+            // e.currentTarget.nextElementSibling.style.transform = 'scaleY(1)';
+        }
         else e.currentTarget.nextElementSibling.style.transform = 'scaleY(0)';
     }
 }
