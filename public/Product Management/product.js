@@ -13,12 +13,13 @@ document.addEventListener('click', () => {
     }
 });
 
-function showDetails(e, element) {
+async function showDetails(e, element) {
     e.stopPropagation();
     if (element === 'edit_category') {
         const element = document.querySelector('.edit_category.flex_column');
         element.style.display = 'flex';
         setTimeout(() => { element.style.transform = 'scale(1)'; });
+        element.querySelector('h1').innerHTML = 'Edit Category';
         element.querySelector('.input.flex_column:nth-child(2) input').placeholder = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(2)').innerHTML;
     } else if (element === 'add_category') {
         const element = document.querySelector('.edit_category.flex_column');
@@ -31,9 +32,7 @@ function showDetails(e, element) {
         productDetails.style.display = 'flex';
         gsap.from('#product_table_stagger', {
             y: '-2rem',
-            opacity: 0,
-            delay: 0.5,
-            stagger: 0.3
+            opacity: 0
         });
     } else if (element === 'back') {
         // If user clicks on back
@@ -44,24 +43,49 @@ function showDetails(e, element) {
             right_section.children[2].style.display = 'flex';
             right_section.children[4].style.display = 'flex';
             right_section.children[6].style.display = 'flex';
-        } else if (e.currentTarget.parentElement.parentElement.parentElement.id === 'brands_table') {
-            right_section.children[2].style.display = 'flex';
-            right_section.children[5].style.display = 'flex';
-            right_section.children[6].style.display = 'flex';
-        } else {
+        } else if (e.currentTarget.parentElement.parentElement.id === 'brands_table') {
             right_section.children[2].style.display = 'flex';
             right_section.children[3].style.display = 'flex';
             right_section.children[6].style.display = 'flex';
-            gsap.from('#table_stagger', {
+            await gsap.from('#brand_table_stagger', {
                 y: '-2rem',
                 opacity: 0,
                 delay: 0.5,
                 stagger: 0.3
             });
+        } else {
+            right_section.children[2].style.display = 'flex';
+            right_section.children[3].style.display = 'flex';
+            right_section.children[6].style.display = 'flex';
+            if (document.querySelector('#product_table_stagger .appointments_header_left h1:nth-child(1)').classList.contains('active')) {
+                await gsap.from('#product_table_stagger', {
+                    y: '-2rem',
+                    opacity: 0,
+                    // stagger: 0.3
+                });
+            }
         }
     } else if (element === 'product_details') {
         Array.from(right_section.children).forEach(child => { child.style.display = 'none' });
+        if (e.currentTarget.innerText === 'Add New Product') right_section.children[7].querySelector('.header p').innerHTML = 'Back &gt; Add Product';
+        else {
+            right_section.children[7].querySelector('.header p').innerHTML = 'Back &gt; Edit Product';
+            if (e.currentTarget.parentElement.parentElement.parentElement.id === 'products') {
+                document.querySelector('#name').value = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(2)').innerHTML;
+                document.querySelector('#sku').value = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(6)').innerHTML;
+                document.querySelector('#purchase_price').value = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(4)').innerHTML;
+                document.querySelector('#details').value = e.currentTarget.parentElement.parentElement.querySelector('.product_detail p').innerHTML;
+            } else {
+                document.querySelector('#name').value = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(2)').innerHTML;
+            }
+        }
         right_section.children[7].style.display = 'flex';
+        await gsap.from('#product_details_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
         setTimeout(() => {
             right_section.children[7].style.transform = 'scale(1)';
         });
@@ -72,7 +96,7 @@ function showDetails(e, element) {
         e.currentTarget.previousElementSibling.classList.remove('active');
         document.querySelector('#brands').style.display = 'block';
         document.querySelector('#category').style.display = 'none';
-        gsap.from('#brand_table_stagger', {
+        await gsap.from('#brand_table_stagger', {
             y: '-2rem',
             opacity: 0,
             delay: 0.5,
@@ -85,11 +109,9 @@ function showDetails(e, element) {
         e.currentTarget.nextElementSibling.classList.remove('active');
         document.querySelector('#brands').style.display = 'none';
         document.querySelector('#category').style.display = 'block';
-        gsap.from('#table_stagger', {
+        await gsap.from('#product_table_stagger', {
             y: '-2rem',
             opacity: 0,
-            delay: 0.5,
-            stagger: 0.3
         });
     } else if (element === 'add_brand') {
         const element = document.querySelector('.edit_category.edit_brand.flex_column');
@@ -146,11 +168,9 @@ function addAnimations() {
         stagger: 0.3
     });
 
-    gsap.from('#table_stagger', {
+    gsap.from('#product_table_stagger', {
         y: '-2rem',
-        opacity: 0,
-        delay: 0.5,
-        stagger: 0.3
+        opacity: 0
     });
 
     // gsap.from('#chart_stagger', {
