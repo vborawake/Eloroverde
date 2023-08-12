@@ -146,6 +146,7 @@
                 </div>
             </div>
             <div class="right_section flex_column">
+                <!-- Edit Category Popup -->
                 <div class="edit_category flex_column" style="display: none;">
                     <div class="flex_row center space_between">
                         <h1>Edit Category</h1>
@@ -186,6 +187,7 @@
                         <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
                     </div>
                 </div>
+                <!-- Edit brand popup -->
                 <div class="edit_category edit_brand flex_column" style="display: none;">
                     <div class="flex_row center space_between">
                         <h1>Edit Brand</h1>
@@ -232,6 +234,7 @@
                         <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
                     </div>
                 </div>
+                <!-- Page header -->
                 <div class="header flex_row center space_between" id="stagger">
                     <div class="header_left_section flex_column">
                         <h1>Product Management</h1>
@@ -247,7 +250,9 @@
                         <p id="username">John</p>
                     </div>
                 </div>
+                <!-- Main product and brand categories table -->
                 <div class="appointments flex_column box" id="stagger">
+                    <!-- Main product categories -->
                     <div class="appointments_header flex_row center space_between" id="product_table_stagger">
                         <div class="appointments_header_left flex_row center">
                             <h1 onclick="showDetails(event, 'products')" class="active">Product Category</h1>
@@ -349,6 +354,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Main brands categories -->
                     <div class="brands flex_column width_full" style="display: none;">
                         <div class="header flex_row space_between center" id="brand_table_stagger">
                             <p>Image</p>
@@ -441,9 +447,232 @@
                         </div>
                     </div>
                 </div>
-                <div class="appointments flex_column box" id="products" style="display: none;">
+
+                <!-- First Subcategory -->
+                <div class="appointments flex_column box first_subcategory" id="products" style="display: none;">
                     <div class="appointments_header flex_row center space_between">
-                        <h1 onclick="showDetails(event, 'back')">Back &lt; List Of All Products Available</h1>
+                        <h1 onclick="showDetails(event, 'back')">Back &gt; List Of All Products Available</h1>
+                        <button onclick="showDetails(event, 'add_category')">Add New Category</button>
+                    </div>
+                    <div class="header flex_row space_between center" id="product_details_table_stagger">
+                        <p>Image</p>
+                        <p>Product Name</p>
+                        <p># Of Products</p>
+                        <p>Detail</p>
+                        <p>Price</p>
+                        <p>Stock</p>
+                        <p>SKU</p>
+                        <p>Action</p>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Rolling Tray</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Rolling Paper</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Paper Flavours</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Nozzle/Filters</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Rolled Cones</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'second_category')">Cyclone/Blunts</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Second Subcategory -->
+                <div class="appointments flex_column box second_category" id="products" style="display: none;">
+                    <div class="appointments_header flex_row center space_between">
+                        <h1 onclick="showDetails(event, 'back')">Back &gt; List Of All Products Available</h1>
+                        <button onclick="showDetails(event, 'add_category')">Add New Category</button>
+                    </div>
+                    <div class="header flex_row space_between center" id="product_details_table_stagger">
+                        <p>Image</p>
+                        <p>Product Name</p>
+                        <p># Of Products</p>
+                        <p>Detail</p>
+                        <p>Price</p>
+                        <p>Stock</p>
+                        <p>SKU</p>
+                        <p>Action</p>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'third_category')">Wooden Trays</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'third_category')">Glass Trays</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'third_category')">3D Trays</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'third_category')">Raw Trays</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                    <div class="values flex_row space_between center" id="product_details_table_stagger">
+                        <div class="image flex_row center">
+                            <span></span>
+                        </div>
+                        <p onclick="showDetails(event, 'third_category')">G-Rollz Trays</p>
+                        <p>1</p>
+                        <div class="product_detail">
+                            <p>Lorem, ipsum.</p>
+                        </div>
+                        <p>€ 20</p>
+                        <p id="success">In Stock</p>
+                        <p>#2056</p>
+                        <div class="action flex_row space_between center">
+                            <button onclick="showDetails(event, 'edit_category')"><img src="../images/edit_yellow.png" alt=""></button>
+                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Third Subcategory -->
+                <div class="appointments flex_column box third_category" id="products" style="display: none;">
+                    <div class="appointments_header flex_row center space_between">
+                        <h1 onclick="showDetails(event, 'back')">Back &gt; List Of All Products Available</h1>
                         <button onclick="showDetails(event, 'product_details')">Add New Product</button>
                     </div>
                     <div class="header flex_row space_between center" id="product_details_table_stagger">
@@ -459,7 +688,7 @@
                         <div class="image flex_row center">
                             <span></span>
                         </div>
-                        <p>Rolling Tray</p>
+                        <p>Lungs Wooden Rolling Tray</p>
                         <div class="product_detail">
                             <p>Lorem, ipsum.</p>
                         </div>
@@ -475,7 +704,7 @@
                         <div class="image flex_row center">
                             <span></span>
                         </div>
-                        <p>Rolling Tray</p>
+                        <p>Lungs Wooden Rolling Tray</p>
                         <div class="product_detail">
                             <p>Lorem, ipsum.</p>
                         </div>
@@ -491,7 +720,7 @@
                         <div class="image flex_row center">
                             <span></span>
                         </div>
-                        <p>Rolling Tray</p>
+                        <p>Lungs Wooden Rolling Tray</p>
                         <div class="product_detail">
                             <p>Lorem, ipsum.</p>
                         </div>
@@ -507,7 +736,7 @@
                         <div class="image flex_row center">
                             <span></span>
                         </div>
-                        <p>Rolling Tray</p>
+                        <p>Lungs Wooden Rolling Tray</p>
                         <div class="product_detail">
                             <p>Lorem, ipsum.</p>
                         </div>
@@ -523,39 +752,7 @@
                         <div class="image flex_row center">
                             <span></span>
                         </div>
-                        <p>Rolling Tray</p>
-                        <div class="product_detail">
-                            <p>Lorem, ipsum.</p>
-                        </div>
-                        <p>€ 20</p>
-                        <p id="success">In Stock</p>
-                        <p>#2056</p>
-                        <div class="action flex_row space_between center">
-                            <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
-                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
-                        </div>
-                    </div>
-                    <div class="values flex_row space_between center" id="product_details_table_stagger">
-                        <div class="image flex_row center">
-                            <span></span>
-                        </div>
-                        <p>Rolling Tray</p>
-                        <div class="product_detail">
-                            <p>Lorem, ipsum.</p>
-                        </div>
-                        <p>€ 20</p>
-                        <p id="success">In Stock</p>
-                        <p>#2056</p>
-                        <div class="action flex_row space_between center">
-                            <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
-                            <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
-                        </div>
-                    </div>
-                    <div class="values flex_row space_between center" id="product_details_table_stagger">
-                        <div class="image flex_row center">
-                            <span></span>
-                        </div>
-                        <p>Rolling Tray</p>
+                        <p>Lungs Wooden Rolling Tray</p>
                         <div class="product_detail">
                             <p>Lorem, ipsum.</p>
                         </div>
@@ -568,6 +765,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Sub-brands Table -->
                 <div class="appointments flex_column box" id="brands_table" style="display: none;">
                     <div class="appointments_header flex_row center space_between">
                         <div class="appointments_header_left flex_row center" onclick="showDetails(event, 'back')">
@@ -603,6 +801,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Footer -->
                 <div class="footer flex_row space_between center" id="stagger">
                     <p>Showing <span id="current">05</span> Of <span id="total">05</span> Entries</p>
                     <div class="pagination flex_row center" onclick="changePage(event)">
@@ -612,6 +811,7 @@
                         <button id="next">Next</button>
                     </div>
                 </div>
+                <!-- Edit / add product screen -->
                 <div class="details popup flex_column">
                     <div class="header flex_row center" onclick="showDetails(event, 'back')">
                         <p>Back &gt; Edit Product</p>

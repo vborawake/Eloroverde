@@ -358,13 +358,19 @@ input, textarea {
 
 .container .content_wrapper .appointments#products .header > p:nth-child(2),
 .container .content_wrapper .appointments#products .values p:nth-child(2) {
-    width: 20%;
+    width: 15%;
     text-align: center;
 }
 
 .container .content_wrapper .appointments#products .header > p:nth-child(3),
+.container .content_wrapper .appointments#products .values p:nth-child(3) {
+    width: 10%;
+    text-align: center;
+}
+
+.container .content_wrapper .appointments#products .header > p:nth-child(4),
 .container .content_wrapper .appointments#products .values .product_detail {
-    width: 20%;
+    width: 15%;
     text-align: center;
 }
 
@@ -375,21 +381,21 @@ input, textarea {
     white-space: nowrap;
 }
 
-.container .content_wrapper .appointments#products .header p:nth-child(4),
-.container .content_wrapper .appointments#products .values p:nth-child(4) {
+.container .content_wrapper .appointments#products .header p:nth-child(5),
+.container .content_wrapper .appointments#products .values p:nth-child(5) {
     width: 8%;
     text-align: center;
 }
 
 .container .content_wrapper .appointments#products .header p:nth-child(6),
 .container .content_wrapper .appointments#products .values p:nth-child(6),
-.container .content_wrapper .appointments#products .header p:nth-child(5),
-.container .content_wrapper .appointments#products .values p:nth-child(5) {
+.container .content_wrapper .appointments#products .header p:nth-child(7),
+.container .content_wrapper .appointments#products .values p:nth-child(7) {
     width: 10%;
     text-align: center;
 }
 
-.container .content_wrapper .appointments#products .header p:nth-child(7),
+.container .content_wrapper .appointments#products .header p:nth-child(8),
 .container .content_wrapper .appointments#products .values .action {
     width: 8%;
     text-align: center;
