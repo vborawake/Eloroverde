@@ -366,6 +366,7 @@ input:focus, textarea:focus {
     border: 3px solid #CD0508;
     font-weight: 600;
     color: #CD0508;
+    margin-right: 1rem;
 }
 
 .container .content_wrapper .right_section .screen_2 .screen_2_header p span {
