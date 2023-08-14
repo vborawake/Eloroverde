@@ -157,6 +157,10 @@
                         <input type="text" placeholder="Training">
                     </div>
                     <div class="input flex_column">
+                        <p>Total Products</p>
+                        <input type="text" placeholder="1">
+                    </div>
+                    <div class="input flex_column">
                         <p>Stock</p>
                         <div class="select" style="width: 100%; z-index: 2;">
                             <p class="selected_item flex_column justify_center">In Stock</p>
@@ -196,6 +200,110 @@
                     <div class="input flex_column">
                         <p>Brand Name</p>
                         <input type="text" placeholder="CBD">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Total Products</p>
+                        <input type="text" placeholder="1">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Stock</p>
+                        <div class="select" style="width: 100%; z-index: 2;">
+                            <p class="selected_item flex_column justify_center">In Stock</p>
+                            <div class="select_menu flex_column">
+                                <p class="item flex_column justify_center">In Stock</p>
+                                <p class="item flex_column justify_center">Low In Stock</p>
+                                <p class="item flex_column justify_center">Out Of Stock</p>
+                            </div>
+                        </div>
+                        <!-- <input type="text" placeholder="Male"> -->
+                    </div>
+                    <div class="input flex_column">
+                        <p>Position</p>
+                        <input type="text" placeholder="2056">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Image</p>
+                        <div class="image_input">
+                            <input type="text" placeholder="Choose File">
+                            <div class="file_input flex_row justify_center center">
+                                <input type="file">
+                                <img src="../images/file_download_black.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input flex_column" id="image_input">
+                        <div class="image">
+                            <img src="../images/CBD_Large.png" alt="">
+                            <img src="../images/close_black.png" alt="">
+                        </div>
+                    </div>
+                    <div class="buttons flex_row center">
+                        <button>Submit</button>
+                        <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
+                    </div>
+                </div>
+                <div class="edit_category edit_pack flex_column" style="display: none;">
+                    <div class="flex_row center space_between">
+                        <h1>Edit Package</h1>
+                        <img src="../images/close_black.png" alt="close" onclick="closeDetails(event, 'edit_pack')">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Package Name</p>
+                        <input type="text" placeholder="CBD">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Total Products</p>
+                        <input type="text" placeholder="1">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Stock</p>
+                        <div class="select" style="width: 100%; z-index: 2;">
+                            <p class="selected_item flex_column justify_center">In Stock</p>
+                            <div class="select_menu flex_column">
+                                <p class="item flex_column justify_center">In Stock</p>
+                                <p class="item flex_column justify_center">Low In Stock</p>
+                                <p class="item flex_column justify_center">Out Of Stock</p>
+                            </div>
+                        </div>
+                        <!-- <input type="text" placeholder="Male"> -->
+                    </div>
+                    <div class="input flex_column">
+                        <p>Position</p>
+                        <input type="text" placeholder="2056">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Image</p>
+                        <div class="image_input">
+                            <input type="text" placeholder="Choose File">
+                            <div class="file_input flex_row justify_center center">
+                                <input type="file">
+                                <img src="../images/file_download_black.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input flex_column" id="image_input">
+                        <div class="image">
+                            <img src="../images/CBD_Large.png" alt="">
+                            <img src="../images/close_black.png" alt="">
+                        </div>
+                    </div>
+                    <div class="buttons flex_row center">
+                        <button>Submit</button>
+                        <button onclick="requestAnimationFrame(() => { event.target.parentElement.parentElement.style.transform = 'scale(0)' })">Reset</button>
+                    </div>
+                </div>
+                <div class="edit_category edit_virals flex_column" style="display: none;">
+                    <div class="flex_row center space_between">
+                        <h1>Edit Virals</h1>
+                        <img src="../images/close_black.png" alt="close" onclick="closeDetails(event, 'edit_virals')">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Product Name</p>
+                        <input type="text" placeholder="CBD">
+                    </div>
+                    <div class="input flex_column">
+                        <p>Total Views</p>
+                        <input type="text" placeholder="10M">
                     </div>
                     <div class="input flex_column">
                         <p>Stock</p>
@@ -251,16 +359,20 @@
                     </div>
                 </div>
                 <!-- Main product and brand categories table -->
-                <div class="appointments flex_column box" id="stagger">
+                <div class="appointments flex_column box main_category" id="stagger">
                     <!-- Main product categories -->
                     <div class="appointments_header flex_row center space_between" id="product_table_stagger">
                         <div class="appointments_header_left flex_row center">
                             <h1 onclick="showDetails(event, 'products')" class="active">Product Category</h1>
-                            <h1 onclick="showDetails(event, 'brands')">Brands</h1>
+                            <h1 id="brands_tab" onclick="showDetails(event, 'brands')">Brands</h1>
+                            <h1 id="packs_tab" onclick="showDetails(event, 'packs')">Packs</h1>
+                            <h1 id="virals_tab" onclick="showDetails(event, 'virals')">Virals</h1>
                         </div>
                         <div class="appointments_header_right flex_row center">
                             <button onclick="showDetails(event, 'add_category')" id="category">Add New Category</button>
                             <button onclick="showDetails(event, 'add_brand')" id="brands" style="display: none;">Add New Brands</button>
+                            <button onclick="showDetails(event, 'add_pack')" id="packs" style="display: none;">Add New Pack</button>
+                            <button onclick="showDetails(event, 'product_details')" id="virals" style="display: none;">Add New Virals</button>
                         </div>
                     </div>
                     <div class="products width_full">
@@ -371,7 +483,7 @@
                             <div class="image flex_row center">
                                 <img src="../images/CBD.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">CBD</p>
+                            <p onclick="showDetails(event, 'third_category')">CBD</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>1</p>
@@ -384,7 +496,7 @@
                             <div class="image flex_row center">
                                 <img src="../images/Acti Tube.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">Acti Tube</p>
+                            <p onclick="showDetails(event, 'third_category')">Acti Tube</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>2</p>
@@ -397,7 +509,7 @@
                             <div class="image flex_row center">
                                 <img src="../images/OO Seeds.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">OO Seeds</p>
+                            <p onclick="showDetails(event, 'third_category')">OO Seeds</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>3</p>
@@ -410,7 +522,7 @@
                             <div class="image flex_row center">
                                 <img src="../images/Aero Spaced.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">Aero Spaced</p>
+                            <p onclick="showDetails(event, 'third_category')">Aero Spaced</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>4</p>
@@ -423,7 +535,7 @@
                             <div class="image flex_row center">
                                 <img src="../images/Aleda.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">Aleda</p>
+                            <p onclick="showDetails(event, 'third_category')">Aleda</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>5</p>
@@ -436,12 +548,181 @@
                             <div class="image flex_row center">
                                 <img src="../images/Backwoods.png" alt="">
                             </div>
-                            <p onclick="showDetails(event, 'brand')">Backwoods</p>
+                            <p onclick="showDetails(event, 'third_category')">Backwoods</p>
                             <p>1</p>
                             <p id="success">In Stock</p>
                             <p>6</p>
                             <div class="action flex_row space_between center">
                                 <button onclick="showDetails(event, 'add_brand')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="packs flex_column width_full" style="display: none;">
+                        <div class="header flex_row space_between center" id="pack_table_stagger">
+                            <p>Image</p>
+                            <div class="flex_row center justify_center">
+                                <p>Brand Name</p>
+                                <button><img src="../images/sort.png" alt=""></button>
+                            </div>
+                            <p># of Products</p>
+                            <p>Stock</p>
+                            <p>Position</p>
+                            <p>Action</p>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>2</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>3</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>4</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>5</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="pack_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p onclick="showDetails(event, 'second_category')">Green Gold Packs</p>
+                            <p>1</p>
+                            <p id="success">In Stock</p>
+                            <p>6</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'add_pack')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="virals flex_column width_full" style="display: none;">
+                        <div class="header flex_row space_between center" id="virals_table_stagger">
+                            <p>Image</p>
+                            <div class="flex_row center justify_center">
+                                <p>Product Name</p>
+                                <button><img src="../images/sort.png" alt=""></button>
+                            </div>
+                            <p>Views</p>
+                            <p>Stock</p>
+                            <p>Position</p>
+                            <p>Action</p>
+                        </div>
+                        <div class="values flex_row space_between center" id="virals_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p>Santa Cruz Bowl Buster</p>
+                            <p>12 M</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="virals_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p>Santa Cruz Bowl Buster</p>
+                            <p>12 M</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="virals_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p>Santa Cruz Bowl Buster</p>
+                            <p>12 M</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="virals_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p>Santa Cruz Bowl Buster</p>
+                            <p>12 M</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
+                                <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="values flex_row space_between center" id="virals_table_stagger">
+                            <div class="image flex_row center">
+                                <img src="../images/pack.png" alt="">
+                            </div>
+                            <p>Santa Cruz Bowl Buster</p>
+                            <p>12 M</p>
+                            <p id="success">In Stock</p>
+                            <p>1</p>
+                            <div class="action flex_row space_between center">
+                                <button onclick="showDetails(event, 'product_details')"><img src="../images/edit_yellow.png" alt=""></button>
                                 <button><img src="../images/delete_outline_black_24dp 1.png" alt=""></button>
                             </div>
                         </div>

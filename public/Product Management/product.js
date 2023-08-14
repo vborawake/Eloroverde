@@ -46,9 +46,14 @@ async function showDetails(e, element) {
         // Hide Everything on screen
         Array.from(right_section.children).forEach(child => { child.style.display = 'none' });
         // If user clicks on back from edit / add product screen show products screen
-        if (e.currentTarget.innerText.trim() === 'Back > Edit Product' || e.currentTarget.innerText.trim() === 'Back > Add Product') {
+        if (document.getElementById('virals_tab').classList.contains('active')) {
+            // If user clicks on back from first subcategory table
             document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
-            right_section.children[6].style.display = 'flex';
+            right_section.children[5].style.display = 'flex';
+            document.querySelector('.footer').style.display = 'flex';
+        } else if (e.currentTarget.innerText.trim() === 'Back > Edit Product' || e.currentTarget.innerText.trim() === 'Back > Add Product') {
+            document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
+            document.querySelector('.third_category').style.display = 'flex';
             document.querySelector('.footer').style.display = 'flex';
             await gsap.from('.third_category #product_details_table_stagger', {
                 y: '-2rem',
@@ -69,20 +74,37 @@ async function showDetails(e, element) {
         } else if (e.currentTarget.parentElement.parentElement.classList.contains('first_subcategory')) {
             // If user clicks on back from first subcategory table
             document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
-            right_section.children[3].style.display = 'flex';
+            right_section.children[5].style.display = 'flex';
             document.querySelector('.footer').style.display = 'flex';
         } else if (e.currentTarget.parentElement.parentElement.classList.contains('second_category')) {
+            if (document.querySelector('#packs_tab').classList.contains('active')) {
+                document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
+                right_section.children[5].style.display = 'flex';
+                document.querySelector('.footer').style.display = 'flex';
+                return;
+            }
+            
             // If user clicks on back from second subcategory table
             document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
-            right_section.children[4].style.display = 'flex';
+            right_section.children[6].style.display = 'flex';
             document.querySelector('.footer').style.display = 'flex';
         } else if (e.currentTarget.parentElement.parentElement.classList.contains('third_category')) {
+            // If packs or virals is selected go directly to main categories
+            if (document.querySelector('#brands_tab').classList.contains('active') ||
+                document.querySelector('#virals_tab').classList.contains('active')
+               ) {
+                document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
+                right_section.children[5].style.display = 'flex';
+                document.querySelector('.footer').style.display = 'flex';
+                return;
+            }
             // If user clicks on back from products table
             document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
-            right_section.children[5].style.display = 'flex';
+            right_section.children[7].style.display = 'flex';
             document.querySelector('.footer').style.display = 'flex';
         }
     } else if (element === 'second_category') {
+        document.querySelector('.main_category').style.display = 'none';
         // Hide first category
         document.querySelector('#products').style.display = 'none';
         // Show second category
@@ -96,6 +118,7 @@ async function showDetails(e, element) {
             stagger: 0.3
         });
     } else if (element === 'third_category') {
+        document.querySelector('.main_category').style.display = 'none';
         // Hide second category
         document.querySelector('#products.second_category').style.display = 'none';
         // Show third category
@@ -112,10 +135,10 @@ async function showDetails(e, element) {
         // Hide everything on screen
         Array.from(right_section.children).forEach(child => { child.style.display = 'none' });
         // If User has clicked on add new product button
-        if (e.currentTarget.innerText === 'Add New Product') right_section.children[9].querySelector('.header p').innerHTML = 'Back &gt; Add Product';
+        if (e.currentTarget.innerText === 'Add New Product' || e.currentTarget.innerText === 'Add New Virals') document.querySelector('.details.popup').querySelector('.header p').innerHTML = 'Back &gt; Add Product';
         // If user has clicked on edit product button (yellow pencil)
         else {
-            right_section.children[9].querySelector('.header p').innerHTML = 'Back &gt; Edit Product';
+            document.querySelector('.details.popup').querySelector('.header p').innerHTML = 'Back &gt; Edit Product';
             // For products table
             if (e.currentTarget.parentElement.parentElement.parentElement.id === 'products') {
                 document.querySelector('#name').value = e.currentTarget.parentElement.parentElement.querySelector('p:nth-child(2)').innerHTML;
@@ -128,19 +151,25 @@ async function showDetails(e, element) {
             }
         }
         // Show edit product / edit brand screen
-        right_section.children[9].style.display = 'flex';
+        document.querySelector('.details.popup').style.display = 'flex';
         setTimeout(() => {
-            right_section.children[9].style.transform = 'scale(1)';
+            document.querySelector('.details.popup').style.transform = 'scale(1)';
         });
     } else if (element === 'brands') {
         // When user clicks on brands tab hide the main products table and show main brands table
         document.querySelector('.products.width_full').style.display = 'none';
+        document.querySelector('.packs.width_full').style.display = 'none';
+        document.querySelector('.virals.width_full').style.display = 'none';
         document.querySelector('.brands.width_full').style.display = 'flex';
         // Highlight the selected tab
+        Array.from(e.currentTarget.parentElement.children).forEach(child => child.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        e.currentTarget.previousElementSibling.classList.remove('active');
         // Show 'add new brand' button
         document.querySelector('#brands').style.display = 'block';
+        // Hide other buttons
+        document.querySelector('#category').style.display = 'none';
+        document.querySelector('#packs').style.display = 'none';
+        document.querySelector('#virals').style.display = 'none';
         // Hide 'add new product' button
         document.querySelector('#category').style.display = 'none';
         await gsap.from('#brand_table_stagger', {
@@ -153,11 +182,15 @@ async function showDetails(e, element) {
         // When user clicks on brands tab show the main products table and hide main brands table
         document.querySelector('.products.width_full').style.display = 'block';
         document.querySelector('.brands.width_full').style.display = 'none';
+        document.querySelector('.packs.width_full').style.display = 'none';
+        document.querySelector('.virals.width_full').style.display = 'none';
         // Highlight the selected tab
+        Array.from(e.currentTarget.parentElement.children).forEach(child => child.classList.remove('active'));
         e.currentTarget.classList.add('active');
-        e.currentTarget.nextElementSibling.classList.remove('active');
         // Hide 'add new brand' button
         document.querySelector('#brands').style.display = 'none';
+        document.querySelector('#packs').style.display = 'none';
+        document.querySelector('#virals').style.display = 'none';
         // Show 'add new product' button
         document.querySelector('#category').style.display = 'block';
         await gsap.from('#product_table_stagger', {
@@ -176,6 +209,30 @@ async function showDetails(e, element) {
             element.querySelector('h1').innerHTML = 'Edit Brand';
             document.querySelector('#image_input').style.display = 'flex';
         }
+    } else if (element === 'add_pack') {
+        // Show add pack popup
+        const element = document.querySelector('.edit_category.edit_pack.flex_column');
+        element.style.display = 'flex';
+        setTimeout(() => { element.style.transform = 'scale(1)'; });
+        element.querySelector('h1').innerHTML = 'Add Pack';
+        element.querySelector('#image_input').style.display = 'none';
+        // If user clicks on yellow pencil button then change the title to Edit Pack
+        if (e.currentTarget.parentElement.classList.contains('action')) {
+            element.querySelector('h1').innerHTML = 'Edit Pack';
+            element.querySelector('#image_input').style.display = 'flex';
+        }
+    } else if (element === 'add_viral') {
+        // Show add pack popup
+        const element = document.querySelector('.edit_category.edit_virals.flex_column');
+        element.style.display = 'flex';
+        setTimeout(() => { element.style.transform = 'scale(1)'; });
+        element.querySelector('h1').innerHTML = 'Add Viral';
+        element.querySelector('#image_input').style.display = 'none';
+        // If user clicks on yellow pencil button then change the title to Edit Viral
+        if (e.currentTarget.parentElement.classList.contains('action')) {
+            element.querySelector('h1').innerHTML = 'Edit Viral';
+            element.querySelector('#image_input').style.display = 'flex';
+        }
     } else if (element === 'brand') {
         // show sub brand screen
         Array.from(right_section.children).forEach(child => { child.style.display = 'none' });
@@ -184,6 +241,49 @@ async function showDetails(e, element) {
         brands.style.display = 'flex';
         document.querySelector('.header.flex_row.center.space_between').style.display = 'flex';
         right_section.children[6].style.display = 'flex';
+    } else if (element === 'packs') {
+        // When user clicks on packs tab hide other main tables
+        document.querySelector('.products.width_full').style.display = 'none';
+        document.querySelector('.brands.width_full').style.display = 'none';
+        document.querySelector('.packs.width_full').style.display = 'flex';
+        document.querySelector('.virals.width_full').style.display = 'none';
+        // Highlight the selected tab
+        Array.from(e.currentTarget.parentElement.children).forEach(child => child.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        // Show 'add new brand' button
+        document.querySelector('#brands').style.display = 'none';
+        // Hide 'add new product' button
+        document.querySelector('#category').style.display = 'none';
+        document.querySelector('#packs').style.display = 'block';
+        console.log(document.querySelector('#packs').style.display);
+        document.querySelector('#virals').style.display = 'none';
+        await gsap.from('#pack_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
+    } else if (element === 'virals') {
+        // When user clicks on brands tab hide the main products table and show main brands table
+        document.querySelector('.products.width_full').style.display = 'none';
+        document.querySelector('.brands.width_full').style.display = 'none';
+        document.querySelector('.packs.width_full').style.display = 'none';
+        document.querySelector('.virals.width_full').style.display = 'flex';
+        // Highlight the selected tab
+        Array.from(e.currentTarget.parentElement.children).forEach(child => child.classList.remove('active'));
+        e.currentTarget.classList.add('active');
+        // Show 'add new brand' button
+        document.querySelector('#brands').style.display = 'none';
+        // Hide 'add new product' button
+        document.querySelector('#category').style.display = 'none';
+        document.querySelector('#virals').style.display = 'block';
+        document.querySelector('#packs').style.display = 'none';
+        await gsap.from('#virals_table_stagger', {
+            y: '-2rem',
+            opacity: 0,
+            delay: 0.5,
+            stagger: 0.3
+        });
     }
 }
 
@@ -194,6 +294,12 @@ function closeDetails(e, element) {
         element.style.transform = 'scale(0)';
     } else if (element === 'edit_brand') {
         const element = document.querySelector('.edit_category.edit_brand.flex_column');
+        element.style.transform = 'scale(0)';
+    } else if (element === 'edit_pack') {
+        const element = document.querySelector('.edit_category.edit_pack.flex_column');
+        element.style.transform = 'scale(0)';
+    } else if (element === 'edit_virals') {
+        const element = document.querySelector('.edit_category.edit_virals.flex_column');
         element.style.transform = 'scale(0)';
     } else {
         requestAnimationFrame(() => {
